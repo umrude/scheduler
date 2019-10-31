@@ -49,7 +49,6 @@ export default function Appointment(props) {
   function confirmDel() {
     transition(CONFIRMDEL);
   }
-  console.log(mode);
   return (
   <article className="appointment">
     <Header time={props.time}></Header>
@@ -84,7 +83,7 @@ export default function Appointment(props) {
       )}
       {mode === CONFIRMDEL && (
         <Confirm
-          message="Are you sure you would like to delete this appointment?"
+          message="Are you sure you want to delete this appointment?"
           onCancel={() => transition(SHOW)}
           onConfirm={() => { deleteInterview(props.id, props.interview) }}
         />
