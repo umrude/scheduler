@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useReducer, useEffect } from 'react';
 
 const axios = require('axios').default;
@@ -18,15 +19,21 @@ function reducer(state, action) {
         interviewers: action.interviewers
       };
     case SET_INTERVIEW: {
-      console.log(state)
       const appointment = {
         ...state.appointments[action.input.id],
-        interview: {...action.input.interview}
+        interview: { ...action.input.interview }
       };
       const appointments = {
         ...state.appointments,
         [action.input.id]: appointment
       };
+
+      for (const day of { ...state }.days){
+        if(day.name === state.day){
+          day.spots += action.spots;
+        }
+      }
+
       return { ...state, appointments}
     }
     default:
@@ -50,17 +57,25 @@ export default function useApplicationData() {
 
   function bookInterview(id, interview) {
     let input = {id:id, interview};
+    let spots = -1;
+    if (state.appointments[id].interview) {
+      spots = 0;
+    }
+
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((data) => {
-        dispatch({ type: SET_INTERVIEW, input });
+        dispatch({ type: SET_INTERVIEW, input, spots });
       })
   };
 
   function cancelInterview(id, interview) {
+    let spots = 1;
+
+
     let input = { id:id, interview: null };
     return axios.delete(`/api/appointments/${id}`)
       .then((data) => {
-        dispatch({ type: SET_INTERVIEW, input })
+        dispatch({ type: SET_INTERVIEW, input, spots })
       })
   };
 
