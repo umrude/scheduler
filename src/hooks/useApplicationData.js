@@ -18,17 +18,15 @@ function reducer(state, action) {
         interviewers: action.interviewers
       };
     case SET_INTERVIEW: {
+      console.log(state)
       const appointment = {
-        ...state.appointments[action.eventData.id],
-        interview: action.eventData.interview
-          ? { ...action.eventData.interview }
-          : null
+        ...state.appointments[action.input.id],
+        interview: {...action.input.interview}
       };
       const appointments = {
         ...state.appointments,
-        [action.eventData.id]: appointment
+        [action.input.id]: appointment
       };
-
       return { ...state, appointments}
     }
     default:
@@ -38,18 +36,20 @@ function reducer(state, action) {
   }
 }
 
+const initialState = {
+  day: "Monday",
+  days: [],
+  appointments: {},
+  interviewers: {}
+};
+
 export default function useApplicationData() {
-  const [state, dispatch] = useReducer(reducer, {
-    day: "Monday",
-    days: [],
-    appointments: {},
-    interviewers: {}
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const setDay = day => dispatch({type: SET_DAY, value: day});
 
   function bookInterview(id, interview) {
-    let input = {id, interview};
+    let input = {id:id, interview};
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((data) => {
         dispatch({ type: SET_INTERVIEW, input });
@@ -57,8 +57,8 @@ export default function useApplicationData() {
   };
 
   function cancelInterview(id, interview) {
-    let input = { id, interview };
-    return axios.delete(`/api/appointments/${id}`, { interview })
+    let input = { id:id, interview: null };
+    return axios.delete(`/api/appointments/${id}`)
       .then((data) => {
         dispatch({ type: SET_INTERVIEW, input })
       })
@@ -72,7 +72,6 @@ export default function useApplicationData() {
     ]).then((data) => {
       dispatch({
         type: SET_APPLICATION_DATA,
-        day: "Monday",
         days: data[0].data,
         appointments: data[1].data,
         interviewers: data[2].data

@@ -27,14 +27,14 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
   function save(name, interviewer) {
     transition(SAVING, true)
     const interview = {
       student: name,
       interviewer
     };
-    props
-      .bookInterview(props.id, interview)
+    props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));
   }
@@ -46,9 +46,11 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
   }
+
   function confirmDel() {
     transition(CONFIRMDEL);
   }
+
   return (
   <article className="appointment">
     <Header time={props.time}></Header>
