@@ -33,7 +33,6 @@ function reducer(state, action) {
           day.spots += action.spots;
         }
       }
-
       return { ...state, appointments}
     }
     default:
