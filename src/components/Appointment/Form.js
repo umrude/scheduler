@@ -17,7 +17,7 @@ export default function Form(props) {
     props.onCancel();
   }
 
-  return(
+  return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
         <form autoComplete="off" onSubmit={event => event.preventDefault()}>
@@ -26,17 +26,17 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
-            value = {name}
+            value={name}
             onChange={(event) => {
               setName(event.target.value)
             }}
           />
         </form>
-        <InterviewerList 
-        interviewers={props.interviewers} 
-        value={interviewer} 
-        setInterviewer={setInterviewer}
-        onChange={setInterviewer} />
+        <InterviewerList
+          interviewers={props.interviewers}
+          value={interviewer}
+          setInterviewer={setInterviewer}
+          onChange={setInterviewer} />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">

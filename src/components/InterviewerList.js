@@ -18,7 +18,7 @@ export default function InterviewerList(props) {
   });
 
   return <Fragment>
-    <section className= "interviewers">
+    <section className="interviewers">
       <h4 className="interviewers__header">Interviewers</h4>
       <ul className="interviewers__list">{interviewers}</ul>
     </section>

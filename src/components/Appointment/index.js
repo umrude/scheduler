@@ -52,15 +52,15 @@ export default function Appointment(props) {
   }
 
   return (
-  <article className="appointment">
-    <Header time={props.time}></Header>
+    <article className="appointment">
+      <Header time={props.time}></Header>
 
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer.name}
-          onDelete = {() => confirmDel()}
+          onDelete={() => confirmDel()}
           onEdit={() => transition(EDIT)}
         />
       )}
@@ -68,7 +68,7 @@ export default function Appointment(props) {
         <Form
           interviewers={props.interviewers}
           onCancel={() => back()}
-          onSave={(name, interviewer) => { 
+          onSave={(name, interviewer) => {
             save(name, interviewer)
           }}
         />
@@ -96,7 +96,7 @@ export default function Appointment(props) {
           interviewer={props.interview.interviewer.id}
           name={props.interview.student}
           onCancel={() => back()}
-          onSave={(name, interviewer) => { save(name, interviewer)}}
+          onSave={(name, interviewer) => { save(name, interviewer) }}
         />
       )}
       {mode === ERROR_SAVE && (
@@ -111,8 +111,8 @@ export default function Appointment(props) {
           onClose={() => back()}
         />
       )}
-      
-  </article>
+
+    </article>
 
   );
 }

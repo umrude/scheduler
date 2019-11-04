@@ -28,12 +28,12 @@ function reducer(state, action) {
         [action.input.id]: appointment
       };
 
-      for (const day of { ...state }.days){
-        if(day.name === state.day){
+      for (const day of { ...state }.days) {
+        if (day.name === state.day) {
           day.spots += action.spots;
         }
       }
-      return { ...state, appointments}
+      return { ...state, appointments }
     }
     default:
       throw new Error(
@@ -52,10 +52,10 @@ const initialState = {
 export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setDay = day => dispatch({type: SET_DAY, value: day});
+  const setDay = day => dispatch({ type: SET_DAY, value: day });
 
   function bookInterview(id, interview) {
-    let input = {id:id, interview};
+    let input = { id: id, interview };
     let spots = -1;
     if (state.appointments[id].interview) {
       spots = 0;
@@ -71,7 +71,7 @@ export default function useApplicationData() {
     let spots = 1;
 
 
-    let input = { id:id, interview: null };
+    let input = { id: id, interview: null };
     return axios.delete(`/api/appointments/${id}`)
       .then((data) => {
         dispatch({ type: SET_INTERVIEW, input, spots })
@@ -93,6 +93,6 @@ export default function useApplicationData() {
     });
   }, []);
 
-  return {state, setDay, bookInterview, cancelInterview}
+  return { state, setDay, bookInterview, cancelInterview }
 };
 

@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -169,7 +169,7 @@ storiesOf("Appointment", module)
       onConfirm={action("onConfirm")}
       onCancel={action("onCancel")}
     />)
-  .add("Status", () => <Status message = "Deleting"/>)
+  .add("Status", () => <Status message="Deleting" />)
   .add("Error", () =>
     <Error
       message="Could not delete appointment"
@@ -205,4 +205,4 @@ storiesOf("Appointment", module)
       <Appointment id="last" time="1pm" />
     </Fragment>
   ))
-;
+  ;
