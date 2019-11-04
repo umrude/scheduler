@@ -39,6 +39,7 @@ export function getInterviewersForDay(state, day) {
   allDays[0].interviewers.forEach((id) => {
     results.push(state.interviewers[id]);
   })
+  console.log(results)
 
   return results;
 }
