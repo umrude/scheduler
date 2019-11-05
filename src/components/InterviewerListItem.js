@@ -2,10 +2,10 @@ import React from "react";
 
 import "components/InterviewerListItem.scss";
 
-let classNames = require('classnames');
+const classNames = require('classnames');
 
 export default function InterviewerListItem(props) {
-  let itemClass = classNames("interviewers__item", {
+  const itemClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected
   });
   return (

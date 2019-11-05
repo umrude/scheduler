@@ -1,33 +1,19 @@
-var handler = {
-  get: function (obj, prop) {
-    //console.log(obj, prop);
-    return obj[prop];
-  },
-  set: function (obj, prop, value) {
-    //console.log(obj, prop, value);
-    obj[prop] = value;
-    return true;
-  }
-};
-
-
 const fixtures = {
   days: [
-    new Proxy({
+    {
       id: 1,
       name: "Monday",
       appointments: [1, 2],
       interviewers: [1, 2],
       spots: 1
-    }, handler)
-    ,
-    new Proxy({
+    },
+    {
       id: 2,
       name: "Tuesday",
       appointments: [3, 4],
       interviewers: [3, 4],
       spots: 1
-    }, handler)
+    }
   ],
   appointments: {
     "1": { id: 1, time: "12pm", interview: null },
@@ -73,7 +59,7 @@ export default {
       return Promise.resolve({
         status: 200,
         statusText: "OK",
-        data: fixtures.days // JSON.parse(JSON.stringify(fixtures.days))
+        data: fixtures.days
       });
     }
 

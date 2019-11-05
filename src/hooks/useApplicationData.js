@@ -23,7 +23,7 @@ export default function useApplicationData() {
   const setDay = day => dispatch({ type: SET_DAY, value: day });
 
   function bookInterview(id, interview) {
-    let input = { id: id, interview };
+    const input = { id: id, interview };
     let spots = -1;
     if (state.appointments[id].interview) {
       spots = 0;
@@ -36,10 +36,10 @@ export default function useApplicationData() {
   };
 
   function cancelInterview(id, interview) {
-    let spots = 1;
+    const spots = 1;
 
 
-    let input = { id: id, interview: null };
+    const input = { id: id, interview: null };
     return axios.delete(`/api/appointments/${id}`)
       .then((data) => {
         dispatch({ type: SET_INTERVIEW, input, spots })
