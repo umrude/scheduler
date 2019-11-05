@@ -79,12 +79,16 @@ export default {
       });
     }
   }),
-  put: jest.fn(url => {
-    if (url === "/api/appointments/1" || "/api/appointments/2") {
-      return Promise.resolve({
-        status: 204,
-        statusText: "No Content"
-      });
-    }
+  put: jest.fn(() => {
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content"
+    });
   }),
+  delete: jest.fn(() => {
+    return Promise.resolve({
+      status: 204,
+      statusText: "No Content"
+    });
+  })
 }

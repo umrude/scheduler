@@ -29,7 +29,7 @@ function reducer(state, action) {
       };
 
       for (const day of { ...state }.days) {
-        if (day.name === state.day) {
+        if (day.name === { ...state }.day) {
           day.spots += action.spots;
         }
       }
