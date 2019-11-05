@@ -1,3 +1,4 @@
+//returns an array containing appointments for the day
 export function getAppointmentsForDay(state, day) {
   let result = [];
   const allDays = state.days.filter((dayIn) => {
@@ -14,7 +15,7 @@ export function getAppointmentsForDay(state, day) {
 }
 
 
-
+//structures the interview obj
 export function getInterview(state, interview) {
   if (interview === null) {
     return null;
@@ -27,6 +28,7 @@ export function getInterview(state, interview) {
   return interviews;
 }
 
+//returns a list of interviewers for the day
 export function getInterviewersForDay(state, day) {
   const results = [];
   const allDays = state.days.filter((dayIn) => {

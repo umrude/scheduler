@@ -16,6 +16,7 @@ const initialState = {
   interviewers: {}
 };
 
+//handles axios requests for booking/deleting; gets api data for initial data
 export default function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
 

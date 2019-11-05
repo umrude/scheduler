@@ -7,7 +7,7 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "help
 import useApplicationData from 'hooks/useApplicationData';
 
 
-
+//renders the main page, displays dayList and Appointments for day
 export default function Application() {
   const {
     state,

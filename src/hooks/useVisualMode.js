@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-
+//manages whats displayed eg. form, edit, delete in appointment/index.js ect based on transition 
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
