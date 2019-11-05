@@ -38,7 +38,6 @@ export default function useApplicationData() {
   function cancelInterview(id, interview) {
     const spots = 1;
 
-
     const input = { id: id, interview: null };
     return axios.delete(`/api/appointments/${id}`)
       .then((data) => {
