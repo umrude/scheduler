@@ -17,7 +17,6 @@ import Application from "components/Application";
 import axios from "axios";
 
 afterEach(() => {
-  console.log(cleanup);
   cleanup()
 })
 
@@ -91,7 +90,7 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
 
-    expect(getByText(day, "2 spot remaining")).toBeInTheDocument();
+    expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
   });
 
@@ -168,7 +167,7 @@ describe("Application", () => {
   });
 
   it("shows the delete error when failing to delete an existing appointment", async () => {
-    axios.put.mockRejectedValueOnce();
+    axios.delete.mockRejectedValueOnce();
 
     // 1. Render the Application.
     const { container } = render(<Application />);

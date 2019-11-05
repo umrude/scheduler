@@ -1,46 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useReducer, useEffect } from 'react';
+import axios from "axios";
 
-const axios = require('axios').default;
+import reducer, {
+  SET_DAY,
+  SET_APPLICATION_DATA,
+  SET_INTERVIEW
+} from "reducers/application";
 
-const SET_DAY = "SET_DAY";
-const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
-const SET_INTERVIEW = "SET_INTERVIEW";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case SET_DAY:
-      return { ...state, day: action.value }
-    case SET_APPLICATION_DATA:
-      return {
-        ...state,
-        days: action.days,
-        appointments: action.appointments,
-        interviewers: action.interviewers
-      };
-    case SET_INTERVIEW: {
-      const appointment = {
-        ...state.appointments[action.input.id],
-        interview: { ...action.input.interview }
-      };
-      const appointments = {
-        ...state.appointments,
-        [action.input.id]: appointment
-      };
-
-      for (const day of { ...state }.days) {
-        if (day.name === { ...state }.day) {
-          day.spots += action.spots;
-        }
-      }
-      return { ...state, appointments }
-    }
-    default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
-  }
-}
 
 const initialState = {
   day: "Monday",
