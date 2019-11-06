@@ -1,12 +1,15 @@
 # Interview Scheduler
+
 ## About Interview Scheduler
 
 Interview Scheduler is a single-page web application. Users can book an interview with a mentor, edit their interview, and delete their interview. This project is an introduction to reactJS and is for learning purposes.
 
+## Final Product
 
-
-
-
+!["Home Page"](https://github.com/umrude/scheduler/blob/master/docs/img_home.png?raw=true)
+!["Add new appointment"](https://github.com/umrude/scheduler/blob/master/docs/img_add.png?raw=true)
+!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_new.png?raw=true)
+!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_new.png?raw=true)
 
 ## Setup
 
@@ -31,6 +34,7 @@ npm run storybook
 ```
 
 ## Dependencies
+
 ```sh
 axios
 classnames
