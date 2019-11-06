@@ -8,12 +8,12 @@ Interview Scheduler is a single-page web application. Users can book an intervie
 
 !["Home Page"](https://github.com/umrude/scheduler/blob/master/docs/img_home.png?raw=true)
 !["Add new appointment"](https://github.com/umrude/scheduler/blob/master/docs/img_add.png?raw=true)
-!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_addName.png?raw=true)
-!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_new.png?raw=true)
+!["New appointment added/old one being removed"](https://github.com/umrude/scheduler/blob/master/docs/delete:add.png?raw=true)
+!["New appointment added/old one gone!"](https://github.com/umrude/scheduler/blob/master/docs/img_final.png?raw=true)
 
 ## Setup
 
-Install dependencies with `npm install`.
+Install dependencies with `npm install`. Set up your own test database by forking LHL [scheduler-api](https://github.com/lighthouse-labs/scheduler-api).
 
 ## Running Webpack Development Server
 
@@ -42,4 +42,8 @@ normalize.css
 react
 react-dom
 react-scripts
+Storybook
+Webpack Dev Server
+Jest
+testing-libaray
 ```
