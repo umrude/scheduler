@@ -1,4 +1,12 @@
 # Interview Scheduler
+## About Interview Scheduler
+
+Interview Scheduler is a single-page web application. Users can book an interview with a mentor, edit their interview, and delete their interview. This project is an introduction to reactJS and is for learning purposes.
+
+
+
+
+
 
 ## Setup
 
@@ -20,4 +28,14 @@ npm test
 
 ```sh
 npm run storybook
+```
+
+## Dependencies
+```sh
+axios
+classnames
+normalize.css
+react
+react-dom
+react-scripts
 ```
