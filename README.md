@@ -8,7 +8,7 @@ Interview Scheduler is a single-page web application. Users can book an intervie
 
 !["Home Page"](https://github.com/umrude/scheduler/blob/master/docs/img_home.png?raw=true)
 !["Add new appointment"](https://github.com/umrude/scheduler/blob/master/docs/img_add.png?raw=true)
-!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_new.png?raw=true)
+!["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_addName.png?raw=true)
 !["New appointment added"](https://github.com/umrude/scheduler/blob/master/docs/img_new.png?raw=true)
 
 ## Setup
